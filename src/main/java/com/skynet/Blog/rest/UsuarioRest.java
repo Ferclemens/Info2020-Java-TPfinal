@@ -42,6 +42,17 @@ public class UsuarioRest {
 		return new ResponseEntity<>(user.save(newUser), HttpStatus.CREATED);
 	}
 	
+	@GetMapping("/ciudad/{ciudad}")
+	public ResponseEntity<?> getAllUserForCity(@PathVariable("ciudad") String ciudad){
+		return new ResponseEntity<>(user.findByCiudadLike(ciudad), HttpStatus.OK);
+	}
+	
+	
+	@GetMapping("/fecha/{fecha}")
+	public ResponseEntity<?> getAllUserStartDate(@PathVariable("fecha") String hoy){
+		return new ResponseEntity<>(user.findByFechaAltaAfter(LocalDate.parse(hoy)), HttpStatus.OK);
+	}
+	
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<?> editUser(@PathVariable("id") Long id, @RequestBody Usuario newUser){
@@ -49,7 +60,6 @@ public class UsuarioRest {
 		userEdit.setApellido(newUser.getApellido());
 		userEdit.setNombre(newUser.getNombre());
 		userEdit.setEmail(newUser.getEmail());
-		userEdit.setPassword(newUser.getPassword());
 		userEdit.setCiudad(newUser.getCiudad());
 		userEdit.setProvincia(newUser.getProvincia());
 		userEdit.setPais(newUser.getPais());
