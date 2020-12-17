@@ -43,5 +43,44 @@ public class Comentario {
 	@NotBlank
 	@Size(min = 1, max = 200)
 	private String comentario;
-	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Usuario getAutor() {
+		return autor;
+	}
+
+	public void setAutor(Usuario autor) {
+		this.autor = autor;
+	}
+
+	public Post getPublicacion() {
+		return publicacion;
+	}
+
+	public void setPublicacion(Post publicacion) {
+		this.publicacion = publicacion;
+	}
+
+	public LocalDate getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(LocalDate fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public String getComentario() {
+		return comentario;
+	}
+
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
+	}
 }
